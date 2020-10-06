@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - terraform --version
+  build:
+    commands:
+      - ls
+      - terraform init
+      - terraform apply $CODEBUILD_SRC_DIR_terraformPlan/myplan 
+  post_build:
+    commands:
+      - echo "apply Done"
